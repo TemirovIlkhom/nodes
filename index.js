@@ -8,22 +8,16 @@
 // CALLBACK
 
 
-execute().then().catch();
 
-async function execute() {
+console.log('passed here 1');
+getMyCar('21A:7180').then(async car => {
+    console.log('Car :: ', car);
+    const card = await getMyCard(car.owner);
+    console.log('INFO: ', card);
+}).catch(err => {
+    console.log('ERROR ::: ', err);
+});
 
-    try {
-        console.log('passed here 1');
-        const car = await getMyCar('21A:7180');
-        console.log('Car :: ', car);
-        const card = await getMyCard(car.owner);
-        console.log('INFO: ', card);
-    } catch (err) {
-        console.log(err);
-    }
-
-
-};
 
 async function getMyCar(number) {
     try {
